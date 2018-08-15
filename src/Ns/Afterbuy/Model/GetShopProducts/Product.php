@@ -251,7 +251,18 @@ class Product extends AbstractModel
      */
     protected $scaledDiscounts;
 
-    /**
+	/**
+	 * @Serializer\Type("array<Ns\Afterbuy\Model\GetShopProducts\AdditionalPrice>")
+	 * @Serializer\XmlList(entry="AdditionalPrice")
+	 * @Serializer\SerializedName("AdditionalPrices")
+	 * @var AdditionalPrice[]
+	 */
+	protected $additionalPrices;
+
+
+
+
+	/**
      * @Serializer\Type("Ns\Afterbuy\Model\FloatType")
      * @Serializer\SerializedName("TaxRate")
      * @var FloatType
@@ -1292,4 +1303,18 @@ class Product extends AbstractModel
     {
         return $this->additionalDescriptionFields;
     }
+
+	/**
+	 * @return AdditionalPrice[]
+	 */
+	public function getAdditionalPrices(): array {
+		return $this->additionalPrices;
+	}
+
+	/**
+	 * @param AdditionalPrice[] $additionalPrices
+	 */
+	public function setAdditionalPrices( array $additionalPrices ): void {
+		$this->additionalPrices = $additionalPrices;
+	}
 }
