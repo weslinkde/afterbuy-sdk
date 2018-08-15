@@ -72,10 +72,10 @@ class AdditionalPrice
 	}
 
 	/**
-	 * @return FloatType
+	 * @return float
 	 */
-	public function getValue(): FloatType {
-		return $this->value;
+	public function getValue() {
+		return $this->value->getValue();
 	}
 
 	/**
